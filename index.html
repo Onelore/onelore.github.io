@@ -1,210 +1,80 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>练习</title>
-	</head>
-	<style>
-		*{
-			margin:0;
-		    padding:0;
-		    border:0;
-		    outline:0;
-		    font-size:100%;
-		    vertical-align:baseline;
-		    background:transparent;
-		    outline-style:none; 
-		}
-		#heartText3{
-			position: absolute;
-			right: 0;
-			width:800px;
-			top: 0;
-			overflow: hidden;
-			font-size: 30px;
-			font-weight: 100;
-			color:black;
-			font-family:wst_ital;	
-			/*font-family:"courier new";*/
-			opacity: 0.6;	
-			/*text-shadow: 5px 1px 6px aqua;					*/		
-		}
-		#div{
-			margin-top: 0px;
-			background-image: url(img/timg.jpg);	
-			background-size:100% 100%;
-			background-repeat:no-repeat;
-		}
-	</style>
-	<body>
-		<div id="div">
-		 <pre id="heartText" style="display: none;"> 
+<html lang="zh-CN">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>恋爱计时器</title>
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+            background-image: url('bg.jpg');
+            font-size: 85%;
+            margin: 0;
+        }
+        
+        h2 {
+            font-size: 220%;
+            font-weight: 400;
+        }
+        
+        .content {
+            position: absolute;
+            width: 100%;
+            top: 40%;
+            transform: translate(0, -50%);
+            text-align: center;
+        }
+        
+        .timer {
+            font-size: 180%;
+            line-height: 1.5;
+            margin: 1em 0;
+        }
+        
+        .timer b {
+            color: rgb(253, 99, 125);
+        }
+    </style>
+</head>
 
-	青梅竹马，从小一起长到大 
-	    突然有一天，他对她说：“嫁给我吧” 
-	但是她犹豫不决 
-	
-	于是他们用剪刀石头布决定一切
-	    他赢了
-	    
-	结婚后她问他，为什么那么有把握。
-	    他淡淡地一笑：
-	“七岁的时候我就知道你喜欢出石头” 
-	 </pre>
-		 <pre id="heartText2"> </pre>			 
-		 <pre id="heartText4" style="display: none;"> 
-		//随机颜色的方法
-		function randomColor(){
-			return parseInt(Math.random()*255+1);
-		}
-		//获取窗口的宽高
-		var width=$(Window).width();
-		var height=$(Window).height();
-		$("#div").css({
-			'height':height	,
-			'width':width
-		})
-		//代码部分手写效果
-		var value_dm=$("#heartText4").text();		
-		var count_dm=0;
-		var timer_dm=setInterval(function(){
-			count_dm++;
-			$("#heartText3").text(value_dm.substring
-			(0,count_dm));	
-			var l1=parseInt($("#heartText3").
-			text().length);
-			var l2=parseInt(value_dm.length);			
-			if(l1==l2){
-				clearInterval(timer_dm);
-				clearInterval(timer_container);
-				$("#heartText3").remove();
-			}
-		},4)		
-		//代码所在的容器循环上移
-		var timer_container=setInterval(function(){
-			var t1=$("#heartText3").css("top").
-			replace("px","");
-			$("#heartText3").css("top",
-			(parseInt(t1)-500)+"px");			
-		},6000)
-		//文字部分的手写效果
-		var value=$("#heartText").text();
-		var count=0;
-		var timer=setInterval(function(){
-			count++;
-			$("#heartText2").text(value.
-			substring(0,count));
-			$("#heartText2").css({
-				"color":"rgb("+randomColor()+","
-				+randomColor()+","+randomColor()+")",
-				"fontSize":'30px',
-				'fontFamily':'楷体'
-			})
-			if(count>value.length){
-				clearInterval(timer)
-			}
-		},50)
-		//满天红心的随机漂浮的效果
-		setInterval(function(){			
-			var tem="<p>❤</p>";			
-			$("#div").append(tem);			
-			$("p").css({
-				"z-index": 9999,
-				'position':'absolute',								
-				'top':Math.random()*(height-160)+120,				
-				'left':Math.random()*(width-160)+40,
-				'color':"red",				
-				'fontSize':parseInt(Math.random()
-				*20+20)+'px'
-			})	
-			var p_tem=$("p").css("fontSize").
-			replace("px","");
-			$("p").animate({
-				'top':parseInt($("p").css("top"))-10,
-				'left':parseInt($("p").css("left"))+10,
-				'opacity':0,
-				'fontSize':(parseInt(p_tem)+
-				(Math.random()*10+20))+'px'
-			},3500,function(){
-				$(this).empty()
-			})
-		},300)
-	
-		 </pre>	 
-		 <pre id="heartText3"  > </pre>
-		</div>
-	</body>
-	 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script>
-		//随机颜色的方法
-		function randomColor(){
-			return parseInt(Math.random()*255);
-		}
-		//获取窗口的宽高
-		var width=$(Window).width();
-		var height=$(Window).height();
-		$("#div").css({
-			'height':height	,
-			'width':width
-		})
-		//代码部分手写效果
-		var value_dm=$("#heartText4").text();		
-		var count_dm=0;
-		var timer_dm=setInterval(function(){
-			count_dm+=3;
-			$("#heartText3").text(value_dm.substring(0,count_dm));	
-			var l1=parseInt($("#heartText3").text().length);
-			var l2=parseInt(value_dm.length);			
-			if(l1==l2){
-				clearInterval(timer_dm);
-				clearInterval(timer_container);
-				$("#heartText3").remove();
-			}
-		},6)		
-		//代码所在的容器循环上移
-		var timer_container=setInterval(function(){
-			var t1=$("#heartText3").css("top").replace("px","");
-			$("#heartText3").css("top",(parseInt(t1)-500)+"px");			
-		},1800)
-		//文字部分的手写效果
-		var value=$("#heartText").text();
-		var count=0;
-		var timer=setInterval(function(){
-			count++;
-			$("#heartText2").text(value.substring(0,count));
-			$("#heartText2").css({
-				"color":"rgb("+randomColor()+","+randomColor()+","+randomColor()+")",
-				"fontSize":'40px',
-				'fontFamily':'楷体'
-			})
-			if(count>value.length){
-				clearInterval(timer)
-			}
-		},50)
-		//满天红心的随机漂浮的效果
-		setInterval(function(){			
-			var tem="<p>❤</p>";			
-			$("#div").append(tem);			
-			$("p").css({
-				"z-index": 9999,
-				'position':'absolute',								
-				'top':Math.random()*(height-180)+120,				
-				'left':Math.random()*(width-180)+40,
-				'color':"red",				
-				'fontSize':parseInt(Math.random()*20+20)+'px'
-			})	
-			var p_tem=$("p").css("fontSize").replace("px","");
-			$("p").animate({
-				'top':parseInt($("p").css("top"))-20,
-				'left':parseInt($("p").css("left"))+20,
-				'opacity':0,
-				'fontSize':(parseInt(p_tem)+(Math.random()*10+20))+'px'
-			},2500,function(){
-				$(this).empty()
-			})
-		},200)		
-	</script>
+<body>
+    <div class="content">
+        <h2>陶小葱，我们已经在一起了</h2>
+        <div class="timer">
+            <b id="d"></b> Days <b id="h"></b> Hours <b id="m"></b> Minutes <b id="s"></b> Seconds
+        </div>
+    </div>
+
+    <script>
+        function timer() {
+            var start = new Date(2018, 07, 18); // 2015.7.2
+            var t = new Date() - start;
+            var h = ~~(t / 1000 / 60 / 60 % 24);
+            if (h < 10) {
+                h = "0" + h;
+            }
+            var m = ~~(t / 1000 / 60 % 60);
+            if (m < 10) {
+                m = "0" + m;
+            }
+
+            var s = ~~(t / 1000 % 60);
+            if (s < 10) {
+                s = "0" + s;
+            }
+            document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+            document.getElementById('h').innerHTML = h;
+            document.getElementById('m').innerHTML = m;
+            document.getElementById('s').innerHTML = s;
+        }
+        timer();
+        setInterval(timer, 1000);
+    </script>
+</body>
+
 </html>
-
-
