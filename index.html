@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+<style>
+
+</style>
 
 <head>
     <meta charset="utf-8">
@@ -12,16 +15,52 @@
         body {
             -webkit-font-smoothing: antialiased;
             font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
-            background-image: url('bg.jpg');
             font-size: 85%;
+
             margin: 0;
         }
-        
+        div{
+            background:linear-gradient(35deg,#CCFFFF,#FFCCCC);
+        }
+        .heart {
+            /*position: absolute;*/
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: pink;
+            height: 50px;
+            width: 50px;
+            transform: rotate(-45deg);
+
+        }
+        .heart:after {
+            background-color: #ffc0cb;
+            content: "";
+            border-radius: 50%;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 0px;
+            left: 25px;
+        }
+        .heart:before {
+            content:"" ;
+            background-color: pink;
+            border-radius: 50%;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: -25px;
+            left: 0px;
+        }
+
         h2 {
             font-size: 220%;
             font-weight: 400;
         }
-        
+
         .content {
             position: absolute;
             width: 100%;
@@ -29,13 +68,13 @@
             transform: translate(0, -50%);
             text-align: center;
         }
-        
+
         .timer {
             font-size: 180%;
             line-height: 1.5;
             margin: 1em 0;
         }
-        
+
         .timer b {
             color: rgb(253, 99, 125);
         }
@@ -43,38 +82,43 @@
 </head>
 
 <body>
+<div id="echo">
     <div class="content">
-        <h2>陶小葱，我们已经在一起</h2>
+        <p class = "heart"></p>
+        <h2><strong>陶小葱</strong>，我们已经在一起</h2>
+
         <div class="timer">
             <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分 <b id="s"></b> 秒 了
         </div>
     </div>
+</div>
 
-    <script>
-        function timer() {
-            var start = new Date(2018, 7, 18); 
-            var t = new Date() - start;
-            var h = ~~(t / 1000 / 60 / 60 % 24);
-            if (h < 10) {
-                h = "0" + h;
-            }
-            var m = ~~(t / 1000 / 60 % 60);
-            if (m < 10) {
-                m = "0" + m;
-            }
 
-            var s = ~~(t / 1000 % 60);
-            if (s < 10) {
-                s = "0" + s;
-            }
-            document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
-            document.getElementById('h').innerHTML = h;
-            document.getElementById('m').innerHTML = m;
-            document.getElementById('s').innerHTML = s;
+<script>
+    function timer() {
+        var start = new Date(2018, 6, 18);
+        var t = new Date() - start;
+        var h = ~~(t / 1000 / 60 / 60 % 24);
+        if (h < 10) {
+            h = "0" + h;
         }
-        timer();
-        setInterval(timer, 1000);
-    </script>
+        var m = ~~(t / 1000 / 60 % 60);
+        if (m < 10) {
+            m = "0" + m;
+        }
+
+        var s = ~~(t / 1000 % 60);
+        if (s < 10) {
+            s = "0" + s;
+        }
+        document.getElementById('d').innerHTML = ~~(t / 1000 / 60 / 60 / 24);
+        document.getElementById('h').innerHTML = h;
+        document.getElementById('m').innerHTML = m;
+        document.getElementById('s').innerHTML = s;
+    }
+    timer();
+    setInterval(timer, 1000);
+</script>
 </body>
 
 </html>
