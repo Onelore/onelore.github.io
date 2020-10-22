@@ -16,13 +16,22 @@
             -webkit-font-smoothing: antialiased;
             font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
             font-size: 85%;
-
+            background-image: url(img1.jpg);
+            background-size:cover;
             margin: 0;
         }
-        div{
+        h2{
             background:linear-gradient(35deg,#CCFFFF,#FFCCCC);
+            -webkit-background-clip: text;
+            color: transparent;
+
         }
-          .back {
+        span{
+            background:linear-gradient(35deg,#CCFFFF,#FFCCCC);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .back {
             position: fixed;
             padding: 0;
             margin: 0;
@@ -32,15 +41,15 @@
             height: 100%;
             background: white;
             animation-name: backdiv;
-            animation-duration: 1s; 
+            animation-duration: 1s;
             animation-iteration-count:infinite;
 
-          }
+        }
 
-          .heart {
+        .heart {
             position: absolute;
             margin: auto;
-            top: 0;
+            top: -200px;
             right: 0;
             bottom: 0;
             left: 0;
@@ -52,8 +61,8 @@
             animation-duration: 1s;
             animation-iteration-count:infinite;
 
-          }
-          .heart:after {
+        }
+        .heart:after {
             background-color: pink;
             content: "";
             border-radius: 50%;
@@ -62,8 +71,8 @@
             height: 50px;
             top: 0px;
             left: 25px;
-          }
-          .heart:before {
+        }
+        .heart:before {
             background-color: pink;
             content: "";
             border-radius: 50%;
@@ -72,22 +81,22 @@
             height: 50px;
             top: -25px;
             left: 0px;
-          }
+        }
 
-          @keyframes backdiv {
+        @keyframes backdiv {
             50% {
-              background: #ffe6f2;
+                background: #ffe6f2;
             }
-          }
+        }
 
-          @keyframes beat {
+        @keyframes beat {
             0% {
-              transform: scale(1) rotate(-45deg);
+                transform: scale(1) rotate(-45deg);
             }
             50% {
-              transform: scale(0.6) rotate(-45deg);
+                transform: scale(0.6) rotate(-45deg);
             }
-          }
+        }
 
         h2 {
             font-size: 220%;
@@ -121,7 +130,10 @@
         <h2><strong>陶小葱</strong>，我们已经在一起</h2>
 
         <div class="timer">
-            <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分 <b id="s"></b> 秒 了
+            <span>
+                <b id="d"></b> 天 <b id="h"></b> 时 <b id="m"></b> 分 <b id="s"></b> 秒 了
+            </span>
+
         </div>
     </div>
 </div>
